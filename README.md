@@ -1,5 +1,7 @@
 # api-pytest
 
+[![API tests](https://github.com/pdxcrimson/api_pytest/actions/workflows/api.yml/badge.svg?branch=main)](https://github.com/pdxcrimson/api_pytest/actions/workflows/api.yml)
+
 A robust API testing framework built with Pytest, Requests, and JSON Schema validation.
 
 ## Prerequisites
