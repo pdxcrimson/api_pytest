@@ -1,0 +1,31 @@
+# .github/workflows/api.yml
+name: API tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+
+      - name: Install
+        run: |
+          pip install uv
+          uv sync
+
+      - name: Smoke tests
+        run: uv run pytest -m smoke --tb=short -q
+
+      - name: Full suite
+        run: uv run pytest --html=reports/report.html --self-contained-html
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-report
+          path: reports/report.html

@@ -5,13 +5,23 @@ description = "A Python framework with REST APIs and Pytest"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "fastapi>=0.141.1",
     "jsonschema>=4.26.0",
+    "locust>=2.46.0",
     "pytest>=9.0.3",
+    "pytest-html>=4.2.0",
     "python-utils>=3.9.1",
+    "pyyaml>=6.0.3",
     "requests>=2.33.1",
     "urllib3>=2.7.0",
+    "uvicorn>=0.53.0",
 ]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
-
+markers = [
+    "smoke: fast sanity checks, run on every commit",
+    "contract: schema and contract validation",
+    "negative: error-path tests",
+    "slow: tests that take > 1s",
+]
