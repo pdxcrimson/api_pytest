@@ -18,10 +18,10 @@ jobs:
           uv sync
 
       - name: Smoke tests
-        run: pytest -m smoke --tb=short -q
+        run: uv run pytest -m smoke --tb=short -q
 
       - name: Full suite
-        run: pytest --html=reports/report.html --self-contained-html
+        run: uv run pytest --html=reports/report.html --self-contained-html
 
       - name: Upload report
         if: always()
