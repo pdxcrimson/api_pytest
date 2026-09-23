@@ -1,3 +1,6 @@
 venv/
 __pycache__/
+reports/*.html
+reports/*.csv
+reports/*.json
 *.pyc
