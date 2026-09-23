@@ -19,4 +19,9 @@ dependencies = [
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
-
+markers = [
+    "smoke: fast sanity checks, run on every commit",
+    "contract: schema and contract validation",
+    "negative: error-path tests",
+    "slow: tests that take > 1s",
+]

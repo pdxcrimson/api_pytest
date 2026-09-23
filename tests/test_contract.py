@@ -1,3 +1,5 @@
+import pytest
+
 from utils.validators import assert_schema
 
 class TestSchemaContracts:
@@ -13,6 +15,7 @@ class TestSchemaContracts:
         # Validates every item in the list — not just the first one
         assert_schema(resp.json(), "post")
 
+    @pytest.mark.smoke
     def test_created_post_matches_schema(self, client, new_post_payload):
         resp = client.post("/posts", json=new_post_payload)
         assert resp.status_code == 201

@@ -12,12 +12,14 @@ class TestPostsCRUD:
         assert isinstance(data, list)
         assert len(data) == 100
 
+    @pytest.mark.smoke
     def test_get_post_by_id(self, client: APIClient, existing_post: dict) -> None:
         assert existing_post["id"] == 1
         assert "title" in existing_post
         assert "body" in existing_post
         assert "userId" in existing_post
 
+    @pytest.mark.smoke
     def test_create_post(self, client: APIClient, new_post_payload: dict) -> None:
         resp = client.post("/posts", json=new_post_payload)
         assert resp.status_code == 201
