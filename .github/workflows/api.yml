@@ -17,6 +17,10 @@ jobs:
           pip install uv
           uv sync
 
+      - run: uv run black --check .
+      - run: uv run flake8 . --max-line-length=100 --ignore=E501,W503
+      - run: uv run isort --check-only --profile=black .
+
       - name: Smoke tests
         run: uv run pytest -m smoke --tb=short -q
 

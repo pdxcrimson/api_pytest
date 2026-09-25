@@ -17,6 +17,13 @@ dependencies = [
     "uvicorn>=0.53.0",
 ]
 
+[dependency-groups]
+dev = [
+    "black>=26.5.1",
+    "flake8>=7.4.1",
+    "isort>=9.0.1",
+]
+
 [tool.pytest.ini_options]
 pythonpath = ["."]
 markers = [
@@ -25,3 +32,7 @@ markers = [
     "negative: error-path tests",
     "slow: tests that take > 1s",
 ]
+
+[tool.black]
+target-version = ["py312"]
+line-length = 100

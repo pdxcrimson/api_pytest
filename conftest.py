@@ -1,13 +1,15 @@
 import pytest
-import requests
+
 from utils.client import APIClient
 
 BASE_URL = "https://jsonplaceholder.typicode.com"
+
 
 @pytest.fixture(scope="session")
 def client() -> APIClient:
     """One session for the whole run — avoids re-handshaking per test."""
     return APIClient(base_url=BASE_URL)
+
 
 @pytest.fixture(scope="session")
 def existing_post(client):
@@ -15,6 +17,7 @@ def existing_post(client):
     resp = client.get("/posts/1")
     assert resp.status_code == 200
     return resp.json()
+
 
 @pytest.fixture
 def new_post_payload():

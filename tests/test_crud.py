@@ -28,9 +28,9 @@ class TestPostsCRUD:
         assert "id" in body  # server assigns an ID
 
     def test_update_post(self, client: APIClient) -> None:
-        resp = client.put("/posts/1", json={
-            "id": 1, "title": "updated", "body": "updated body", "userId": 1
-        })
+        resp = client.put(
+            "/posts/1", json={"id": 1, "title": "updated", "body": "updated body", "userId": 1}
+        )
         assert resp.status_code == 200
         assert resp.json()["title"] == "updated"
 
