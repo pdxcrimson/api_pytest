@@ -1,6 +1,7 @@
 # utils/validators.py
 import json
 from pathlib import Path
+
 import jsonschema
 
 SCHEMAS_DIR = Path(__file__).parent.parent / "schemas"

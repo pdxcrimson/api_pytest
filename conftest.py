@@ -1,5 +1,6 @@
 import pytest
 import requests
+
 from utils.client import APIClient
 
 BASE_URL = "https://jsonplaceholder.typicode.com"

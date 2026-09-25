@@ -2,6 +2,7 @@ import pytest
 
 from utils.validators import assert_schema
 
+
 class TestSchemaContracts:
 
     @pytest.mark.smoke

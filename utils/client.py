@@ -2,6 +2,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+
 class APIClient:
     def __init__(self, base_url: str, token: str | None = None):
         self.base_url = base_url.rstrip("/")
