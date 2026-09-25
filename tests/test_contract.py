@@ -32,6 +32,6 @@ class TestSchemaContracts:
     def test_response_time_sla(self, client):
         """Non-functional contract: p99 of a single call should be under 2s."""
         resp = client.get("/posts/1")
-        assert resp.elapsed.total_seconds() < 2.0, (
-            f"Response took {resp.elapsed.total_seconds():.2f}s — SLA is 2s"
-        )
+        assert (
+            resp.elapsed.total_seconds() < 2.0
+        ), f"Response took {resp.elapsed.total_seconds():.2f}s — SLA is 2s"

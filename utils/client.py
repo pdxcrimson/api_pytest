@@ -9,8 +9,7 @@ class APIClient:
         self.session = requests.Session()
 
         # Retry on transient 5xx and connection errors — keeps CI green
-        retry = Retry(total=3, backoff_factor=0.3,
-                      status_forcelist=[500, 502, 503, 504])
+        retry = Retry(total=3, backoff_factor=0.3, status_forcelist=[500, 502, 503, 504])
         self.session.mount("https://", HTTPAdapter(max_retries=retry))
 
         if token:

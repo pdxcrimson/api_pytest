@@ -21,14 +21,11 @@ class TestNegativeCases:
 
     def test_malformed_json_body(self, client: APIClient) -> None:
         resp = client.session.post(
-            client._url("/posts"),
-            data="not-json",
-            headers={"Content-Type": "application/json"}
+            client._url("/posts"), data="not-json", headers={"Content-Type": "application/json"}
         )
         # JSONPlaceholder returns 500 for malformed JSON rather than 400/422.
         # On a well-behaved API this should be 400 or 422 — document the deviation.
         assert resp.status_code in (400, 422, 500)
-
 
     def test_unsupported_method(self, client: APIClient) -> None:
         resp = client.session.patch(client._url("/posts"), json={})
