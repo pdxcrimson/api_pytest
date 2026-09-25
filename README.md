@@ -30,3 +30,5 @@ _This command creates a `.venv`, installs Python >=3.10, and syncs all dependenc
 ```uv run pytest -v```
 # Run individual tests
 ```uv run pytest <path> ...```
+# Run subtests
+```uv run pytest -m smoke```
